@@ -357,8 +357,6 @@ private extension PanModalPresentationController {
 
         setNeedsLayoutUpdate()
         adjustPanContainerBackgroundColor()
-        presentedView.backgroundColor = .red
-        backgroundView.backgroundColor = .blue
     }
 
     /**
