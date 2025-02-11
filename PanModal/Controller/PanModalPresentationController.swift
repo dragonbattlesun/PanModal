@@ -39,7 +39,7 @@ open class PanModalPresentationController: UIPresentationController {
     struct Constants {
         static let indicatorYOffset = CGFloat(8.0)
         static let snapMovementSensitivity = CGFloat(0.7)
-        static let dragIndicatorSize = CGSize(width: 36.0, height: 5.0)
+        static let dragIndicatorSize = CGSize(width: 40.0, height: 4.0)
     }
 
     // MARK: - Properties
@@ -357,6 +357,8 @@ private extension PanModalPresentationController {
 
         setNeedsLayoutUpdate()
         adjustPanContainerBackgroundColor()
+        presentedView.backgroundColor = .red
+        backgroundView.backgroundColor = .blue
     }
 
     /**
@@ -411,7 +413,7 @@ private extension PanModalPresentationController {
     func addDragIndicatorView(to view: UIView) {
         view.addSubview(dragIndicatorView)
         dragIndicatorView.translatesAutoresizingMaskIntoConstraints = false
-        dragIndicatorView.bottomAnchor.constraint(equalTo: view.topAnchor, constant: -Constants.indicatorYOffset).isActive = true
+        dragIndicatorView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.indicatorYOffset).isActive = true
         dragIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         dragIndicatorView.widthAnchor.constraint(equalToConstant: Constants.dragIndicatorSize.width).isActive = true
         dragIndicatorView.heightAnchor.constraint(equalToConstant: Constants.dragIndicatorSize.height).isActive = true
